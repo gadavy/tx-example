@@ -1,0 +1,186 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "tx-example/api/auth/v1/auth.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "AuthAPI"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/auth/sign_in": {
+      "post": {
+        "summary": "SignIn request.",
+        "description": "## Authorization\n| Parameter      | Name           |\n| ------------- | --------------- |\n| Session       | false           |",
+        "operationId": "AuthAPI_SignIn",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.users.v1.SignInResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/google.rpc.Status"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.users.v1.SignInReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthAPI"
+        ]
+      }
+    },
+    "/api/v1/auth/sign_out": {
+      "post": {
+        "summary": "SignOut request.",
+        "description": "## Authorization\n| Parameter      | Name           |\n| ------------- | --------------- |\n| Session       | true            |",
+        "operationId": "AuthAPI_SignOut",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.users.v1.SignOutResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/google.rpc.Status"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.users.v1.SignOutReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthAPI"
+        ]
+      }
+    },
+    "/api/v1/auth/sign_up": {
+      "post": {
+        "summary": "SignUp request.",
+        "description": "## Authorization\n| Parameter      | Name           |\n| ------------- | --------------- |\n| Session       | false           |",
+        "operationId": "AuthAPI_SignUp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.users.v1.SignUpResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/google.rpc.Status"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.users.v1.SignUpReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthAPI"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "google.protobuf.Any": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "google.rpc.Status": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/google.protobuf.Any"
+          }
+        }
+      }
+    },
+    "tx_example.api.users.v1.SignInReq": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "tx_example.api.users.v1.SignInResp": {
+      "type": "object"
+    },
+    "tx_example.api.users.v1.SignOutReq": {
+      "type": "object"
+    },
+    "tx_example.api.users.v1.SignOutResp": {
+      "type": "object"
+    },
+    "tx_example.api.users.v1.SignUpReq": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "tx_example.api.users.v1.SignUpResp": {
+      "type": "object"
+    }
+  }
+}

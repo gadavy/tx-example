@@ -1,0 +1,225 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "tx-example/api/teachers/v1/teachers.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "TeachersAPI"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/teachers/Create": {
+      "post": {
+        "operationId": "TeachersAPI_Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.teachers.v1.CreateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/google.rpc.Status"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.teachers.v1.CreateReq"
+            }
+          }
+        ],
+        "tags": [
+          "TeachersAPI"
+        ]
+      }
+    },
+    "/api/v1/teachers/Delete": {
+      "post": {
+        "operationId": "TeachersAPI_Delete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.teachers.v1.DeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/google.rpc.Status"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.teachers.v1.DeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "TeachersAPI"
+        ]
+      }
+    },
+    "/api/v1/teachers/List": {
+      "post": {
+        "operationId": "TeachersAPI_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.teachers.v1.ListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/google.rpc.Status"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.teachers.v1.ListReq"
+            }
+          }
+        ],
+        "tags": [
+          "TeachersAPI"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "google.protobuf.Any": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "google.rpc.Status": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/google.protobuf.Any"
+          }
+        }
+      }
+    },
+    "tx_example.api.teachers.v1.CreateReq": {
+      "type": "object",
+      "properties": {
+        "schoolId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "tx_example.api.teachers.v1.CreateResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/tx_example.api.teachers.v1.Teacher"
+        }
+      }
+    },
+    "tx_example.api.teachers.v1.DeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "tx_example.api.teachers.v1.DeleteResp": {
+      "type": "object"
+    },
+    "tx_example.api.teachers.v1.ListReq": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "tx_example.api.teachers.v1.ListResp": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/tx_example.api.teachers.v1.Teacher"
+          }
+        }
+      }
+    },
+    "tx_example.api.teachers.v1.Teacher": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "schoolId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

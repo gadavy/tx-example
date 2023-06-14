@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+package tx_example.api.users.v1;
+option go_package = "github.com/gadavy/tx-example/pkg/api/auth/v1;auth";
+
+service AuthAPI {
+  // SignIn request.
+  //
+  // ## Authorization
+  // | Parameter      | Name           |
+  // | ------------- | --------------- |
+  // | Session       | false           |
+  rpc SignIn(SignInReq) returns (SignInResp) {
+    option (google.api.http) = {
+      post: "/api/v1/auth/sign_in"
+      body: "*"
+    };
+  };
+
+  // SignUp request.
+  //
+  // ## Authorization
+  // | Parameter      | Name           |
+  // | ------------- | --------------- |
+  // | Session       | false           |
+  rpc SignUp(SignUpReq) returns (SignUpResp) {
+    option (google.api.http) = {
+      post: "/api/v1/auth/sign_up"
+      body: "*"
+    };
+  };
+
+  // SignOut request.
+  //
+  // ## Authorization
+  // | Parameter      | Name           |
+  // | ------------- | --------------- |
+  // | Session       | true            |
+  rpc SignOut(SignOutReq) returns (SignOutResp) {
+    option (google.api.http) = {
+      post: "/api/v1/auth/sign_out"
+      body: "*"
+    };
+  };
+}
+
+message SignInReq {
+    string email = 1;
+    string password = 2;
+}
+
+message SignInResp {}
+
+message SignUpReq {
+    string email = 1;
+    string password = 2;
+}
+
+message SignUpResp {}
+
+message SignOutReq {}
+
+message SignOutResp {}
+
+message ScopesReq {}

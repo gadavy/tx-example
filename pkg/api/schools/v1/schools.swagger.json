@@ -1,0 +1,221 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "tx-example/api/schools/v1/schools.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "SchoolsAPI"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/schools/Create": {
+      "post": {
+        "operationId": "SchoolsAPI_Create",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.schools.v1.CreateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/google.rpc.Status"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.schools.v1.CreateReq"
+            }
+          }
+        ],
+        "tags": [
+          "SchoolsAPI"
+        ]
+      }
+    },
+    "/api/v1/schools/Delete": {
+      "post": {
+        "operationId": "SchoolsAPI_Delete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.schools.v1.DeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/google.rpc.Status"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.schools.v1.DeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "SchoolsAPI"
+        ]
+      }
+    },
+    "/api/v1/schools/List": {
+      "post": {
+        "operationId": "SchoolsAPI_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.schools.v1.ListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/google.rpc.Status"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/tx_example.api.schools.v1.ListReq"
+            }
+          }
+        ],
+        "tags": [
+          "SchoolsAPI"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "google.protobuf.Any": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "google.rpc.Status": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/google.protobuf.Any"
+          }
+        }
+      }
+    },
+    "tx_example.api.schools.v1.CreateReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "addr": {
+          "type": "string"
+        }
+      }
+    },
+    "tx_example.api.schools.v1.CreateResp": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/tx_example.api.schools.v1.School"
+        }
+      }
+    },
+    "tx_example.api.schools.v1.DeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "tx_example.api.schools.v1.DeleteResp": {
+      "type": "object"
+    },
+    "tx_example.api.schools.v1.ListReq": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "tx_example.api.schools.v1.ListResp": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/tx_example.api.schools.v1.School"
+          }
+        }
+      }
+    },
+    "tx_example.api.schools.v1.School": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "addr": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
